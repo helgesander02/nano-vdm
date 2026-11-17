@@ -16,12 +16,38 @@ A minimal inference engine for video diffusion models on consumer GPUs and NPUs.
 
 - Wang et al. *Efficient On-Device Diffusion LLM Inference with Mobile NPU* (LLaDA.cpp). arXiv:2606.13740, 2026. [paper](https://arxiv.org/abs/2606.13740)
 
-**Models and kernels**
+**Video diffusion inference engines**
+
+- [FastVideo](https://github.com/hao-ai-lab/FastVideo): sparse distillation (VSA + DMD2) for Wan-based models; CUDA, ROCm, and Apple Silicon via MLX.
+- [xDiT](https://github.com/xdit-project/xDiT): multi-GPU parallel DiT inference plus step-caching methods. Fang et al. *xDiT: an Inference Engine for Diffusion Transformers (DiTs) with Massive Parallelism.* arXiv:2411.01738, 2024. [paper](https://arxiv.org/abs/2411.01738)
+- [LightX2V](https://github.com/ModelTC/LightX2V): few-step distillation, W8A8 / W4A4 quantization, disk-CPU-GPU offloading, step caching; ports to many non-NVIDIA accelerators (Ascend, Cambricon, Hygon, Intel AIPC, and others).
+
+**Diffusion serving systems (datacenter)**
+
+- Yin et al. *vLLM-Omni: Fully Disaggregated Serving for Any-to-Any Multimodal Models.* arXiv:2602.02204, 2026. [paper](https://arxiv.org/abs/2602.02204) · [code](https://github.com/vllm-project/vllm-omni)
+- vLLM-Omni Team. *vLLM-Omni Technical Report: A Unified Serving Runtime for Omni-Modality Generation.* arXiv:2610.09307, 2026. [paper](https://arxiv.org/abs/2610.09307)
+- SGLang Diffusion. [Accelerating Video and Image Generation](https://lmsys.org/blog/2025-11-07-sglang-diffusion) (2025) · [Advanced Optimizations for Production-Ready Video Generation](https://www.lmsys.org/blog/2026-02-16-sglang-diffusion-advanced-optimizations) (2026) · [code](https://github.com/sgl-project/sglang)
+
+**Acceleration techniques**
+
+- Zhang et al. *SageAttention: Accurate 8-Bit Attention for Plug-and-play Inference Acceleration.* arXiv:2410.02367, 2024. [paper](https://arxiv.org/abs/2410.02367)
+- Liu et al. *Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model* (TeaCache). arXiv:2411.19108, 2024. [paper](https://arxiv.org/abs/2411.19108) · [code](https://github.com/ali-vilab/TeaCache)
+- First-Block Cache, in [ParaAttention](https://github.com/chengzeyi/ParaAttention).
+- Yuan et al. *DiTFastAttn: Attention Compression for Diffusion Transformer Models.* arXiv:2406.08552, 2024. [paper](https://arxiv.org/abs/2406.08552)
+- Zhang et al. *VSA: Faster Video Diffusion with Trainable Sparse Attention.* arXiv:2505.13389, 2025. [paper](https://arxiv.org/abs/2505.13389)
+
+**Models**
 
 - Wan Team. *Wan: Open and Advanced Large-Scale Video Generative Models.* arXiv:2503.20314, 2025. [paper](https://arxiv.org/abs/2503.20314)
-- Zhang et al. *SageAttention: Accurate 8-Bit Attention for Plug-and-play Inference Acceleration.* arXiv:2410.02367, 2024. [paper](https://arxiv.org/abs/2410.02367)
 
-**Engines**
+**Edge runtimes and toolchains**
 
-- [llama.cpp](https://github.com/ggml-org/llama.cpp), including its Hexagon NPU backend (`ggml/src/ggml-hexagon`)
-- [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm) and [mini-sglang](https://github.com/sgl-project/mini-sglang), for the minimal-engine style
+- [llama.cpp / ggml](https://github.com/ggml-org/llama.cpp), including its Hexagon NPU backend (`ggml/src/ggml-hexagon`)
+- [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp)
+- [MLC-LLM](https://github.com/mlc-ai/mlc-llm)
+- [ExecuTorch](https://github.com/pytorch/executorch)
+- [Qualcomm AI Hub](https://aihub.qualcomm.com/) · [ai-hub-models](https://github.com/qualcomm/ai-hub-models)
+
+**Minimal engines**
+
+- [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm) and [mini-sglang](https://github.com/sgl-project/mini-sglang)
